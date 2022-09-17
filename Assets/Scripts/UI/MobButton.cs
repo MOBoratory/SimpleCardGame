@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace Mob.UI
 {
     /// <summary>
-    /// MOB Button
+    ///     MOB Button
     /// </summary>
     [RequireComponent(typeof(Button))]
     public class MobButton : MonoBehaviour
@@ -14,13 +14,18 @@ namespace Mob.UI
         [SerializeField] private Button _button;
 
         public IObservable<Unit> OnClickAsObservable => _button.OnClickAsObservable();
-        public IObservable<Unit> OnClickThrottleFirstAsObservable => _button.OnClickAsObservable().ThrottleFirstFrame(1);
 
-        private void Awake()
+        public IObservable<Unit> OnClickThrottleFirstAsObservable =>
+            _button.OnClickAsObservable().ThrottleFirstFrame(1);
+
+        private void Reset()
         {
             _button ??= GetComponent<Button>();
         }
 
-        public void SetInteractable(bool interactable) => _button.interactable = interactable;
+        public void SetInteractable(bool interactable)
+        {
+            _button.interactable = interactable;
+        }
     }
 }

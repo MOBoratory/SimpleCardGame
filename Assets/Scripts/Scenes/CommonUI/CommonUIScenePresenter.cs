@@ -15,7 +15,6 @@ namespace MOB.CommonUI.Presenters
     [RequireComponent(typeof(CanvasGroup))]
     public sealed class CommonUIScenePresenter : ScenePresenterBase, IScene
     {
-        // TODO: 作成前に呼ばれたらどうするか
         public static readonly Lazy<CommonUIScenePresenter> Instance = new(() =>
             FindObjectOfType<CommonUIScenePresenter>());
 

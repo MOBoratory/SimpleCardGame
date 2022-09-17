@@ -7,11 +7,11 @@ using UnityEngine;
 namespace Mob.SimpleCardGame.Scripts.Scene
 {
     /// <summary>
-    /// BattleSceneView
+    ///     BattleSceneView
     /// </summary>
     public sealed class BattleSceneView : MonoBehaviour
     {
-        [SerializeField] private RectTransform _cardViewParent;
+        [SerializeField] private CardGroupView _cardGroupView;
         [SerializeField] private MobButton _drawCardButton;
 
         public IObservable<Unit> DrawCardButtonAsObservable => _drawCardButton.OnClickThrottleFirstAsObservable;
@@ -21,12 +21,18 @@ namespace Mob.SimpleCardGame.Scripts.Scene
             SetActiveDrawCardButton(false);
         }
 
-        public void SetActiveDrawCardButton(bool active) => _drawCardButton.gameObject.SetActive(active);
+        public void SetActiveDrawCardButton(bool active)
+        {
+            _drawCardButton.gameObject.SetActive(active);
+        }
 
         /// <summary>
-        /// CardViewの親を設定します
+        ///     CardViewの親を設定します
         /// </summary>
         /// <param name="cardViewInstance">CardViewのInstance</param>
-        public void SetParentCardView(CardView cardViewInstance) => cardViewInstance.transform.SetParent(_cardViewParent, false);
+        public void SetParentCardView(CardView cardViewInstance)
+        {
+            cardViewInstance.transform.SetParent(_cardGroupView.CardViewParent, false);
+        }
     }
 }

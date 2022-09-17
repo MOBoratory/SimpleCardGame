@@ -1,23 +1,28 @@
 using System;
-using Cysharp.Threading.Tasks;
-using TMPro;
 using UniRx;
 using UniRx.Toolkit;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Mob.SimpleCardGame.Scripts.Card.View
 {
     /// <summary>
-    /// CardViewのAsyncObjectPool
+    ///     CardViewのAsyncObjectPool
     /// </summary>
     public sealed class CardViewAsyncObjectPool : AsyncObjectPool<CardView>
     {
+        private readonly Transform _parent;
+
+        public CardViewAsyncObjectPool(Transform parent)
+        {
+            _parent = parent;
+        }
+
         protected override IObservable<CardView> CreateInstanceAsync()
         {
-            return Resources.LoadAsync("SimpleCardGame/Card")
-                .ToUniTask()
-                .ToObservable()
-                .Select(x => x as CardView);
+            var prefab = Resources.Load<CardView>("SimpleCardGame/Prefabs/Card");
+            var go = Object.Instantiate(prefab, _parent);
+            return Observable.Return(go);
         }
 
         protected override void OnBeforeRent(CardView instance)

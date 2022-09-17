@@ -1,4 +1,5 @@
 using Mob.SimpleCardGame.Scripts.Master;
+using UnityEngine;
 
 namespace Mob.SimpleCardGame.Scripts.Card.Model
 {
@@ -12,24 +13,29 @@ namespace Mob.SimpleCardGame.Scripts.Card.Model
                 cardMaster.CardId,
                 cardMaster.Name,
                 cardMaster.Power,
-                cardMaster.Defense
+                cardMaster.Defense,
+                cardMaster.CardSprite
             )
         {
         }
 
-        public CardVO(uint cardId, string name, uint power, uint defense)
+        public CardVO(uint cardId, string cardName, uint power, uint defense, Sprite cardSprite)
         {
             CardId = cardId;
-            Name = name;
+            CardName = cardName;
 
             Power = power;
             Defense = defense;
+
+            CardSprite = cardSprite;
         }
 
         public uint CardId { get; }
-        public string Name { get; }
+        public string CardName { get; }
 
         public uint Power { get; }
         public uint Defense { get; }
+
+        public Sprite CardSprite { get; }
     }
 }

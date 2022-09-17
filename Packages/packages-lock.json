@@ -14,6 +14,13 @@
       "dependencies": {},
       "hash": "634ed94bdd67aac0cf044a0375e5c88cd48478a3"
     },
+    "com.mariusschulz.extralinq": {
+      "version": "https://github.com/kyubuns/ExtraLINQUnity.git?path=Unity/Assets/ExtraLINQ",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "47c42e9ee7173463e0a693eca09c1e9f8e8a8c26"
+    },
     "com.neuecc.unirx": {
       "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
       "depth": 0,

@@ -1,17 +1,17 @@
 using System;
 using Cysharp.Threading.Tasks;
-using MOB.HoRogue.CommonUI.Presenters;
+using MOB.CommonUI.Presenters;
 using MOB.HoRogue.Services;
 using UnityEngine;
 
-namespace MOB.HoRogue.Scenes
+namespace MOB.Scenes.Presenter
 {
     /// <summary>
-    /// シーンPresenter 基底クラス
+    ///     シーンPresenter 基底クラス
     /// </summary>
     public abstract class ScenePresenterBase : MonoBehaviour
     {
-        protected readonly Lazy<SceneService> sceneService = new Lazy<SceneService>(() => ServiceManager.GetService<SceneService>());
+        protected readonly Lazy<SceneService> sceneService = new(() => ServiceManager.GetService<SceneService>());
 
         protected CommonUIScenePresenter commonUI;
 
@@ -25,22 +25,32 @@ namespace MOB.HoRogue.Scenes
         }
 
         /// <summary>
-        /// シーン初期化
+        ///     シーン初期化
         /// </summary>
         public abstract UniTask InitializeAsync();
 
         /// <summary>
-        /// シーンフェードイン開始前
+        ///     シーンフェードイン開始前
         /// </summary>
-        public virtual UniTask BeforeSceneFadeInAsync() => UniTask.CompletedTask;
-        /// <summary>
-        /// シーンフェードアウト開始前
-        /// </summary>
-        public virtual UniTask BeforeSceneFadeOutAsync() => UniTask.CompletedTask;
+        public virtual UniTask BeforeSceneFadeInAsync()
+        {
+            return UniTask.CompletedTask;
+        }
 
         /// <summary>
-        /// シーンフェードイン完了時
+        ///     シーンフェードアウト開始前
         /// </summary>
-        public virtual UniTask OnSceneFadeInCompleteAsync() => UniTask.CompletedTask;
+        public virtual UniTask BeforeSceneFadeOutAsync()
+        {
+            return UniTask.CompletedTask;
+        }
+
+        /// <summary>
+        ///     シーンフェードイン完了時
+        /// </summary>
+        public virtual UniTask OnSceneFadeInCompleteAsync()
+        {
+            return UniTask.CompletedTask;
+        }
     }
 }

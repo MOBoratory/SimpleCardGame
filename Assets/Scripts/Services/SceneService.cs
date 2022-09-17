@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-namespace MOB.HoRogue.Services
+namespace MOB.Services
 {
     public class SceneService : IService
     {

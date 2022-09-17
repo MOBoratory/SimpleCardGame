@@ -2,16 +2,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MOB.HoRogue.Services
+namespace MOB.Services
 {
     public static class ServiceManager
     {
-        private static Dictionary<Type, IService> services = new Dictionary<Type, IService>();
+        private static readonly Dictionary<Type, IService> services = new();
 
-        public static void AddService(IService service) => services.Add(service.GetType(), service);
+        public static void AddService(IService service)
+        {
+            services.Add(service.GetType(), service);
+        }
 
         /// <summary>
-        /// サービスを取得します
+        ///     サービスを取得します
         /// </summary>
         /// <typeparam name="TService">サービスクラスの型</typeparam>
         public static TService GetService<TService>() where TService : IService, new()
@@ -22,7 +25,7 @@ namespace MOB.HoRogue.Services
                 return default;
             }
 
-            return (TService)services[typeof(TService)];
+            return (TService) services[typeof(TService)];
         }
     }
 }

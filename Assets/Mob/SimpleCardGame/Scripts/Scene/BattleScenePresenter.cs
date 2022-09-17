@@ -1,7 +1,9 @@
 using Cysharp.Threading.Tasks;
 using MOB.Scenes.Presenter;
+using MOB.Services;
 using Mob.SimpleCardGame.Scripts.Card.Model;
 using Mob.SimpleCardGame.Scripts.Card.View;
+using Mob.SimpleCardGame.Scripts.Service;
 using UniRx;
 using UnityEngine;
 
@@ -43,13 +45,10 @@ namespace Mob.SimpleCardGame.Scripts.Scene
         /// <returns>新規Instance</returns>
         private CardViewModel CreateCardViewModel()
         {
-            var cardVO = new CardVO
-            (
-                1,
-                "ほげほげカードちゃん",
-                1,
-                1
-            );
+            var masterService = ServiceManager.GetService<MasterService>();
+            var randomCardId = masterService.GetAll();
+            var cardMaster = masterService.GetById(0);
+            var cardVO = new CardVO(cardMaster);
             return new CardViewModel(cardVO);
         }
     }

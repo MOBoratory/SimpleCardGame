@@ -5,9 +5,8 @@ namespace Mob.Scenes.Title
 {
     public sealed class TitleScenePresenter : ScenePresenterBase
     {
-        public override UniTask InitializeAsync()
+        public override async UniTask InitializeAsync()
         {
-            return UniTask.CompletedTask;
         }
     }
 }

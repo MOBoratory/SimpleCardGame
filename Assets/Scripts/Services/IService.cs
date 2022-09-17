@@ -1,4 +1,4 @@
-namespace MOB.HoRogue.Services
+namespace MOB.Services
 {
     public interface IService
     {

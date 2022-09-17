@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Mob.SimpleCardGame.Scripts.Service;
 
-namespace MOB.HoRogue.Services
+namespace MOB.Services
 {
     public class ServiceBundle
     {
@@ -10,6 +11,7 @@ namespace MOB.HoRogue.Services
             return new[]
             {
                 typeof(SceneService),
+                typeof(MasterService)
             };
         }
     }

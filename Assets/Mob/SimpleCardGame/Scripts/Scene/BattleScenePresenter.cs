@@ -1,4 +1,6 @@
+using System.Linq;
 using Cysharp.Threading.Tasks;
+using ExtraLinq;
 using MOB.Scenes.Presenter;
 using MOB.Services;
 using Mob.SimpleCardGame.Scripts.Card.Model;
@@ -40,14 +42,16 @@ namespace Mob.SimpleCardGame.Scripts.Scene
 
         /// <summary>
         ///     CardViewModelを作成します
-        ///     TODO: ランダムなマスターから作成
         /// </summary>
         /// <returns>新規Instance</returns>
         private CardViewModel CreateCardViewModel()
         {
             var masterService = ServiceManager.GetService<MasterService>();
-            var randomCardId = masterService.GetAll();
-            var cardMaster = masterService.GetById(0);
+            // NOTE: ランダムに取得
+            var randomCardMaster = masterService.GetAll()
+                .Shuffle()
+                .First();
+            var cardMaster = masterService.GetById(randomCardMaster.CardId);
             var cardVO = new CardVO(cardMaster);
             return new CardViewModel(cardVO);
         }

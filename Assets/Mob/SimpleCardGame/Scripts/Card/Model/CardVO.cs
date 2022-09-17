@@ -5,7 +5,7 @@ namespace Mob.SimpleCardGame.Scripts.Card.Model
     /// <summary>
     ///     CardModel
     /// </summary>
-    public sealed class CardVO
+    public struct CardVO
     {
         public CardVO(CardMaster cardMaster) :
             this(

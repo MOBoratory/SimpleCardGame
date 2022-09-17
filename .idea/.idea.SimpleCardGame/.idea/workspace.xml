@@ -11,8 +11,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Card/Model/CardVO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Card/Model/CardViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Card/View/CardViewAsyncObjectPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Master/CardMaster.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Master/CardMasterRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Scene/BattleScenePresenter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Scene/BattleSceneView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Mob/SimpleCardGame/Scripts/Service/MasterService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Scenes/ScenePresenterBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.neuecc.unirx@284d5c50d3/UnityEngineBridge/Toolkit/ObjectPool.cs" root0="SKIP_HIGHLIGHTING" />
   </component>

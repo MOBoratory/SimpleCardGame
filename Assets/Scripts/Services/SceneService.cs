@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Text;
 using Cysharp.Threading.Tasks;
-using MOB.HoRogue.CommonUI.Presenters;
+using MOB.CommonUI.Presenters;
 using MOB.HoRogue.Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,11 +12,12 @@ namespace MOB.HoRogue.Services
     public class SceneService : IService
     {
         /// <summary>
-        /// シーンをロードします
+        ///     シーンをロードします
         /// </summary>
         /// <typeparam name="TScene">遷移先のシーン型</typeparam>
         /// <returns>ロードとシーン初期化の完了</returns>
-        public async UniTask<TScene> LoadSceneAsync<TScene>(LoadSceneMode loadSceneMode = LoadSceneMode.Single) where TScene : Component, IScene
+        public async UniTask<TScene> LoadSceneAsync<TScene>(LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+            where TScene : Component, IScene
         {
             if (loadSceneMode == LoadSceneMode.Single)
             {

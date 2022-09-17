@@ -45,6 +45,15 @@ namespace Mob.SimpleCardGame.Scripts.Scene
                     _sceneView.SetParentCardView(x);
                     x.Setup(CreateCardViewModel());
                     x.Show();
+
+                    var disposable = new CompositeDisposable();
+                    x.OnSelectButtonThrottleFirstAsObservable
+                        .Subscribe(_ =>
+                        {
+                            _cardViewAsyncObjectPool.Return(x);
+                            disposable?.Dispose();
+                        })
+                        .AddTo(disposable);
                 })
                 .AddTo(this);
 

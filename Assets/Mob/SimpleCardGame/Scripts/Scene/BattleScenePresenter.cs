@@ -14,9 +14,11 @@ namespace Mob.SimpleCardGame.Scripts.Scene
     /// <summary>
     ///     BattleScenePresenter
     /// </summary>
+    [RequireComponent(typeof(BattleSceneView))]
     public sealed class BattleScenePresenter : ScenePresenterBase
     {
         [SerializeField] private BattleSceneView _sceneView;
+
         private readonly CardViewAsyncObjectPool _cardViewAsyncObjectPool = new();
 
         private void OnDestroy()
